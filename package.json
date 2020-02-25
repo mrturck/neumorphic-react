@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrturck/neomorphic-react.git"
+    "url": "git+https://github.com/mrturck/neomorphic-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/mrturck/neomorphic-react/issues"
+    "url": "https://github.com/mrturck/neomorphic-ui/issues"
   },
-  "homepage": "https://github.com/mrturck/neomorphic-react#readme",
+  "homepage": "https://github.com/mrturck/neomorphic-ui#readme",
   "author": "",
   "license": "ISC",
   "devDependencies": {
