@@ -1,11 +1,25 @@
-export {default as AppBar} from './AppBar';
-export {default as Button} from './Button';
-export {default as Checkbox} from './Checkbox';
-export {default as Drawer} from './Drawer';
-export {default as Input} from './Input';
-export {default as MenuItem} from './MenuItem';
-export {default as Paper} from './Paper';
-export {default as RadioButton} from './RadioButton';
-export {default as Select} from './Select';
-export {default as Switch} from './Switch';
-export {default as Typography} from './Typography';
+import AppBar from './components/AppBar';
+import Button from './components/Button';
+import Checkbox from './components/Checkbox';
+import Drawer from './components/Drawer';
+import Input from './components/Input';
+import MenuItem from './components/MenuItem';
+import Paper from './components/Paper';
+import RadioButton from './components/RadioButton';
+import Select from './components/Select';
+import Switch from './components/Switch';
+import Typography from './components/Typography';
+
+export {
+  AppBar,
+  Button,
+  Checkbox,
+  Drawer,
+  Input,
+  MenuItem,
+  Paper,
+  RadioButton,
+  Select,
+  Switch,
+  Typography
+};

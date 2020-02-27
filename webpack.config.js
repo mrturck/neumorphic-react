@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // 1
-  entry: './src/index.js',
+  entry: './dist/main.js',
   module: {
     rules: [
       {
@@ -31,15 +31,7 @@ module.exports = {
     publicPath: '/',
     // filename: 'bundle.js',
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      hash: true,
-      title: 'Omniscape',
-      template: './src/index.html',
-      filename: './index.html', // relative to root of the application
-    })],
-
+  plugins: [],
   // 3
   devServer: {
     contentBase: './dist',
