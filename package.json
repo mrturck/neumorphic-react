@@ -2,6 +2,7 @@
   "name": "neumorphic-react",
   "version": "0.1.4",
   "main": "lib/prod.js",
+  "keywords" : ["neumorphism", "neumorphic", "react", "ui"],
   "scripts": {
     "prepublishOnly": "npm version patch; npm run release",
     "release": "npm run build:dev && npm run build:prod",
