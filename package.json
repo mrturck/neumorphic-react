@@ -1,6 +1,6 @@
 {
   "name": "neumorphic-react",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "lib/prod.js",
   "scripts": {
     "prepublishOnly": "npm version patch; npm run release",
