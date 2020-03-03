@@ -2,6 +2,11 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import getLight from '../../utils/getLight'
 import Typography from '../Typography';
+import theme from '../../utils/getTheme';
+import getColors from '../../utils/getColors';
+
+const colors = getColors();
+const themeColors = getColors(theme.palette.primary.main);
 
 const styles = {
   root: {
@@ -26,6 +31,7 @@ const HiddenSwitch = styled.input.attrs({ type: 'checkbox' })`
   // Source: https://polished.js.org/docs/#hidevisually
   display: inline-block;
   border: 0;
+  opacity: 0;
   clip: rect(0 0 0 0);
   clippath: inset(50%);
   height: 1px;
@@ -48,15 +54,15 @@ const StyledSwitch = styled.div`
   right: 0;
   bottom: 0;
   border-radius: 24px;
-  background: ${props => props.checked ? 'linear-gradient(145deg, #97a5e8, #4160e8)' : '#ccd2ed'};
-  background-color: #ccd2ed;
-  box-shadow: ${props => !props.checked ? 'inset 3px 3px 5px #a7acc2, inset -3px -3px 5px #f1f8ff' : '' };
-  -webkit-transition: .4s;
-  -ms-transition: .4s;
-  transition: .4s;
+  background: ${props => props.checked ? `linear-gradient(145deg, ${themeColors.lightShadow}, ${themeColors.darkShadow})` : colors.base};
+  background-color: ${colors.base};
+  box-shadow: ${props => !props.checked ? `inset 3px 3px 5px ${colors.darkShadow}, inset -3px -3px 5px ${colors.lightShadow}` : '' };
+  -webkit-transition: .2s;
+  -ms-transition: .2s;
+  transition: .2s;
 
   &:focus {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px ${themeColors.base};
   }
 
   &:before {
@@ -66,20 +72,23 @@ const StyledSwitch = styled.div`
     width: 24px;
     left: 6px;
     border-radius: 180px;
-    box-shadow: ${props => !props.checked && 'inset 5px 5px 7px #adb3c9, inset -5px -5px 7px #ebf2ff'};
+    border: 3px solid linear-gradient(135deg, ${ themeColors.lightShadow}, ${themeColors.darkShadow });
+    box-shadow: ${props => !props.checked && `3px 3px 5px ${colors.darkShadow}, -3px -3px 5px ${colors.lightShadow}`};
     bottom: 4px;
-    background-color: #ccd2ed;
-    -webkit-transition: 0.4s;
-    -ms-transition: 0.4s;
-    transition: 0.4s ease;
+    background-color:  ${colors.base};
+    -webkit-transition: 0.2s;
+    -ms-transition: 0.2s;
+    transition: 0.2s ease;
     -webkit-transform: ${ props => props.checked ? 'translateX(24px)' : ''};
     -ms-transform: ${ props => props.checked ? 'translateX(24px)' : ''};
     transform: ${ props => props.checked && 'translateX(24px)'}
-
+    &:hover {
+        box-shadow: inset 1px 1px 1px ${colors.darkShadow}, inset -1px -1px 1px ${colors.lightShadow};
+    }
   }
   
   &:hover {
-    box-shadow: inset 1px 1px 3px #a7acc2, inset -1px -1px 3px #f1f8ff;
+    box-shadow: inset 1px 1px 3px ${colors.darkShadow}, inset -1px -1px 3px ${colors.lightShadow};
   }
 
 `

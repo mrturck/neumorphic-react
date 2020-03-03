@@ -58,7 +58,9 @@
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
-    "prop-types": "^15.7.2"
+    "color-convert": "^2.0.1",
+    "prop-types": "^15.7.2",
+    "styled-components": "^5.0.1"
   },
   "peerDependencies": {
     "react": ">=16.10.2",

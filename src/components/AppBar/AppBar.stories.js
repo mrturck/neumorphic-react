@@ -7,7 +7,7 @@ import Paper from '../Paper'
 import Typography from '../Typography';
 import Button from '../Button';
 import heart from '../Button/heart.png'
-
+import theme from '../../utils/getTheme';
 const styles={
   root: {
     margin: 24,
@@ -31,12 +31,14 @@ const styles={
     fontSize: 18
   },
   paper: {
-    background: '#ccd2ed',
     height: '100px',
   },
   heart: {
     margin: 'auto',
     height: 100
+  },
+  title: {
+    fontSize: 36
   }
 }
 export default {
@@ -45,7 +47,7 @@ export default {
     <div style={{
       minHeight: '100vh',
       minWidth: '100vw',
-      background: '#ccd2ed',
+      background: theme.palette.background.main,
     }}
     >
         {story()}
@@ -58,7 +60,7 @@ export const withDefault = () => (
     <AppBar>
       <div style={styles.appGrid}>
         <div style={styles.gridItem}>
-        <Typography >Neumorphic-UI</Typography>
+        <Typography style={styles.title} variant="h1" inset >Neumorphic-UI</Typography>
         </div>
         <div style={styles.gridItem}>
         <Button flat style={styles.button}>Sign In</Button>

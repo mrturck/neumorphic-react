@@ -3,7 +3,7 @@ import {
   withKnobs, text, boolean, number
 } from '@storybook/addon-knobs';
 import Input from '.';
-
+import { getColors } from '../../utils';
 
 export default {
   title: 'Input',
@@ -11,7 +11,7 @@ export default {
     <div style={{
       minHeight: '100vh',
       height: '100%',
-      background: '#ccd2ed',
+      background: getColors().base,
       padding: 24,
 
     }}

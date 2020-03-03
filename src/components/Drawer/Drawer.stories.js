@@ -6,6 +6,7 @@ import Drawer from '.';
 import Typography from '../Typography';
 import Button from '../Button';
 import clear from './clear.png';
+import getColors from '../../utils/getColors';
 
 const styles={
   button: {
@@ -38,7 +39,7 @@ export default {
     <div style={{
       minHeight: '100vh',
       minWidth: '100vw',
-      background: '#ccd2ed',
+      background: getColors().base,
     }}
     >
         {story()}

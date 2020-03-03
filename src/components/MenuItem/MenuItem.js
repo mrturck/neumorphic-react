@@ -1,38 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
+import theme from '../../utils/getTheme';
+import getColors from '../../utils/getColors';
 
+const colors = getColors();
 
 const MenuItem = styled.option`
-  height: 16px;
-  min-width: 200px;
-  background: #ccd2ed;
-  padding: 24px;
+  height: 14px;
+  min-width: 100px;
+  background: ${colors.base};
+  padding: 12px;
   color: #565656;
-  font: bold 18px arial, sans-serif;
-  box-shadow: 5px 5px 7px #adb3c9;
+  font: bold 14px arial, sans-serif;
+  box-shadow: 5px 5px 7px ${colors.darkShadow};
 
   &:hover {
-    background:#adb3c9;
+    background:${colors.darkBase};
   }
   &:first-child {
     border-radius: 12px 12px 0px 0px;
-    border-bottom: 1px solid #adb3c9;
+    border-bottom: 1px solid ${colors.darkBase};
 
     :hover {
-          background: #adb3c9
+          background: ${colors.darkBase};
 
     }
   }
 
   &:not(:first-child):not(:last-child) {
-    border-bottom: 1px solid #adb3c9;
+    border-bottom: 1px solid ${colors.darkBase};
   }
 
   &:last-child {
     border-radius: 0px 0px 12px 12px;
 
     :hover {
-      background: #adb3c9
+      background: ${colors.darkBase};
     }
   }
 `

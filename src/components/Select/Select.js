@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import Typography from '../Typography';
 import ArrowUp from './arrow_up';
 import ArrowDown from './arrow_down';
+import theme from '../../utils/getTheme';
+import getColors from '../../utils/getColors';
 
+const colors = getColors();
 const styles={
   selectLabel: {
-    fontSize: 18,
+    height: '16px',
     verticalAlign: 'middle',
     display: 'inline',
     position: 'absolute',
@@ -26,7 +29,7 @@ const styles={
 const SelectContainer = styled.div`
   position: relative;
   display: inline-block;
-  min-width: 300px;
+  min-width: 150px;
   height: 24px;
 `
 const Hidden = styled.select`
@@ -47,16 +50,17 @@ const StyledSelect = styled.div`
   border-radius: 8px;
   position: absolute
   display: inline-block;
-  background-color: #ccd2ed;
-  box-shadow:  ${props => !props.open ? '5px 5px 7px #adb3c9, -5px -5px 7px #ebf2ff'
-  : 'inset 3px 3px 5px #a7acc2, inset -3px -3px 5px #f1f8ff'};
-  font: inherit;
-  color:white;
+  background-color: ${colors.base};
+  box-shadow:  ${props => !props.open ? `5px 5px 7px ${colors.darkShadow}, -5px -5px 7px ${colors.lightShadow}`
+  : `inset 3px 3px 5px ${colors.darkBase}, inset -3px -3px 5px ${colors.lightBase}`};
   border:0;
+  padding: 24px;
+  color: #565656;
+  font: bold 18px arial, sans-serif;
   height: 24px;
-  padding: 12px 8px;
+  padding: 12px;
   &:hover {
-    box-shadow:  ${props => !props.open && '1px 1px 3px #adb3c9, -1px -1px 3px #ebf2ff'};
+    box-shadow:  ${props => !props.open && `1px 1px 3px ${colors.darkShadow}, -1px -1px 3px ${colors.lightShadow}`};
 
   }
   `
@@ -78,9 +82,9 @@ const Select = (props) => {
   return (
       <div>
       <SelectRoot open={open} onClick={handleOpen} style={props.style}>
-        <Typography style={styles.selectLabel}>{props.value}</Typography>
+        {props.value}
         {open ? <ArrowDown style={styles.arrow} /> : <ArrowUp style={styles.arrow}/> }
-        <div style={{marginLeft: -8, marginTop: 48}}>
+        <div style={{marginLeft: -8, marginTop: 28}}>
         { open && props.children}
         </div>
       </SelectRoot>

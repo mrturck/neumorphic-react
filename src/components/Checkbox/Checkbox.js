@@ -2,18 +2,23 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import getLight from '../../utils/getLight'
 import Typography from '../Typography';
+import getColors from '../../utils/getColors';
+import theme from '../../utils/getTheme';
 
+const themeColors = getColors(theme.palette.primary.main);
+const colors = getColors(); // background colors
 /**
 * Tutorial: https://medium.com/@colebemis/building-a-checkbox-component-with-react-and-styled-components-8d3aa1d826dd
 */
 
 const styles= {
   root: {
-    display: 'flex'
+    display: 'flex',
+    width: 10,
   },
   label: {
     fontSize: 16,
-    display: 'inline-block'
+    display: 'inline'
   }
 }
 
@@ -46,10 +51,10 @@ const StyledCheckbox = styled.div`
   width: ${props => props.size ? `${props.size}px` : '16px'};
   height: ${props => props.size ? `${props.size}px` : '16px'};
 
-  background: ${props => props.checked ? 'linear-gradient(145deg, #97a5e8, #4160e8)': '#ccd2ed'};
+  background: ${props => props.checked ? `linear-gradient(315deg, ${themeColors.darkShadow}, ${themeColors.lightShadow})`: colors.base};
   box-shadow: ${ props => 
-    `${props.light.left}2px ${props.light.right}2px 3px #adb3c9,
-     ${props.light.aLeft}2px ${props.light.aRight}2px 3px #ebf2ff
+    `${props.light.left}3px ${props.light.right}3px 5px ${colors.darkShadow},
+     ${props.light.aLeft}3px ${props.light.aRight}3px 5px ${colors.lightShadow}
     `};
 
    ${HiddenCheckbox}:focus + & {
@@ -60,9 +65,8 @@ const StyledCheckbox = styled.div`
 
   &:hover {
       box-shadow: ${ props => 
-      `${props.light.left}1px ${props.light.right}1px 3px #adb3c9,
-      ${props.light.aLeft}1px ${props.light.aRight}1px 3px #ebf2ff
-      `};
+      `${props.light.left}1px ${props.light.right}1px 3px ${colors.darkShadow},
+      ${props.light.aLeft}1px ${props.light.aRight}1px 3px ${colors.lightShadow}`};
   }
 
   &:active {

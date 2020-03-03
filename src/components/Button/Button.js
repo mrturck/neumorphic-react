@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
 import { render } from 'react-dom';
+import theme from '../../utils/getTheme';
+import getColors from '../../utils/getColors';
+
+const colors = getColors(theme.palette.background.main);
 
 /**
  * FIX ISSUE WITH WEIRD BACKGROUND COLORS AT LEAST WITH PAPER COMPONENT
@@ -26,17 +30,17 @@ border-radius: 95px;
 padding: 8px 12px;
 text-align: center;
 
-background: linear-gradient(145deg, #dae1fe, #b8bdd5);
-box-shadow:  5px 5px 7px #adb3c9, -5px -5px 7px #ebf2ff;
+background: ${colors.base}; //linear-gradient(145deg, ${colors.lightBase}, ${colors.darkBase});
+box-shadow:  5px 5px 7px ${colors.darkShadow}, -5px -5px 7px ${colors.lightShadow};
 
 &:hover {
-background: linear-gradient(145deg, #b8bdd5, #dae1fe);
-box-shadow:  3px 3px 5px #adb3c9, -3px -3px 5px #ebf2ff;
+background: ${colors.base}; //linear-gradient(145deg, ${colors.darkBase}, ${colors.lightBase});
+box-shadow:  3px 3px 5px ${colors.darkShadow}, -3px -3px 5px ${colors.lightShadow};
  }
 
 &:active {
-background: #ccd2ed;
-box-shadow: inset 3px 3px 5px #a7acc2, inset -3px -3px 5px #f1f8ff;
+background: ${colors.base};
+box-shadow: inset 3px 3px 5px ${colors.darkShadow}, inset -3px -3px 5px ${colors.lightShadow};
 }
 `
 
@@ -46,16 +50,16 @@ border-radius: 95px;
 padding: 12px 24px;
 text-align: center;
 
-background: ${props => props.color ? props.color : '#ccd2ed'};
-box-shadow:  5px 5px 7px #adb3c9, -5px -5px 7px #ebf2ff;
+background: ${props => props.color ? props.color : colors.base};
+box-shadow:  5px 5px 7px ${colors.darkShadow}, -5px -5px 7px ${colors.lightShadow};
 
 &:hover {
-box-shadow:  3px 3px 7px #adb3c9, -3px -3px 7px #ebf2ff;
+box-shadow:  3px 3px 7px  ${colors.darkShadow}, -3px -3px 7px ${colors.lightShadow};
  }
 
 &:active {
-background: #ccd2ed;
-box-shadow: inset 3px 3px 5px #a7acc2, inset -3px -3px 5px #f1f8ff;
+background: ${colors.base};
+box-shadow: inset 3px 3px 5px  ${colors.darkShadow}, inset -3px -3px 5px ${colors.lightShadow};
 }
 `;
 

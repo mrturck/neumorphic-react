@@ -4,7 +4,7 @@ import {
 } from '@storybook/addon-knobs';
 import RadioButton from '.';
 import Typography from '../Typography';
-
+import {theme} from '../../utils'
 const styles = {
   title: {
     fontSize: '28px',
@@ -20,7 +20,7 @@ export default {
     <div style={{
       minHeight: '100vh',
       minWidth: '100vw',
-      background: '#ccd2ed',
+      background: theme.palette.background.main,
       padding: 24,
     }}
     >

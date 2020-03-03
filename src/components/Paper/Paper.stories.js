@@ -7,6 +7,15 @@ import Typography from '../Typography'
 import Button from '../Button';
 import Input from '../Input';
 import heart from '../Button/heart.png';
+import theme from '../../utils/getTheme';
+
+// experimental
+// const options = {
+//   range: true,
+//   min: 0,
+//   max: 360,
+//   step: 1,
+// };
 
 const styles = {
   paper: {
@@ -48,11 +57,9 @@ const styles = {
     padding: '0px 24px',
   },
   submit: {
-    color: '#fff'
   },
   typ: {
     fontSize: 18,
-    color: '#fff'
   }
 }
 export default {
@@ -61,7 +68,7 @@ export default {
     <div style={{
       minHeight: '100vh',
       height: '100%',
-      background: '#ccd2ed',
+      background: theme.palette.background.main,
       padding: 24,
     }}
     >
@@ -85,8 +92,10 @@ export const withDefault = () => {
       <img src={heart} />
     </Button>
     </Paper>
-    <Paper style={styles.paper2}>
-      <Typography>Wicked Input Form</Typography>
+    <Paper 
+      // direction={number("Direction", 0, options)} experimental
+      style={styles.paper2}>
+      <Typography >Form</Typography>
       <Input
         key="2"
         type="text" 
@@ -102,7 +111,7 @@ export const withDefault = () => {
         placeholder="Password"
         value={pass} />
       { user && pass &&
-      <Button color="#88c" disabled style={styles.submit} flat>
+      <Button disabled style={styles.submit} flat>
           <Typography style={styles.typ}>Log in</Typography>
       </Button>
       }

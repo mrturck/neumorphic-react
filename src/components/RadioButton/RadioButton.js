@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import getLight from '../../utils/getLight'
 import Typography from '../Typography';
+import { getColors, theme } from '../../utils';
 
+const themeColors = getColors(theme.palette.primary.main)
+const colors = getColors();
 
 const styles = {
   root: {
@@ -10,8 +13,7 @@ const styles = {
     width: 'auto'
   },
   label: {
-    fontSize: 16,
-    display: 'inline-block'
+    display: 'inline'
   }
 }
 
@@ -41,13 +43,16 @@ const StyledRadioButton = styled.div`
   display: inline-block;
   border-radius: 180px;
   transition: all 150ms;
+  border: 1px solid linear-gradient(135deg, ${ themeColors.lightShadow }, ${ themeColors.darkShadow });
   width: ${props => props.size ? `${props.size}px` : '12px'};
   height: ${props => props.size ? `${props.size}px` : '12px'};
 
-  background: ${props => props.checked ? 'linear-gradient(145deg, #97a5e8, #4160e8)' : 'linear-gradient(145deg, #dae1fe, #b8bdd5)'};
+  background: ${props => props.checked ? `linear-gradient(135deg, ${themeColors.lightShadow} , ${themeColors.darkShadow})`
+    : `linear-gradient(135deg, ${colors.darkBbase}, ${colors.lightBase})`
+  };
   box-shadow: ${ props =>
-    `${props.light.left}2px ${props.light.right}2px 3px #adb3c9,
-     ${props.light.aLeft}2px ${props.light.aRight}2px 3px #ebf2ff
+    `${props.light.left}2px ${props.light.right}2px 3px ${colors.darkShadow},
+     ${props.light.aLeft}2px ${props.light.aRight}2px 3px ${colors.lightShadow}
     `};
 
    ${HiddenRadioButton}:focus + & {
@@ -58,13 +63,13 @@ const StyledRadioButton = styled.div`
 
   &:hover {
       box-shadow: ${ props =>
-    `${props.light.left}1px ${props.light.right}1px 3px #adb3c9,
-      ${props.light.aLeft}1px ${props.light.aRight}1px 3px #ebf2ff
+    `${props.light.left}1px ${props.light.right}1px 3px ${colors.darkShadow},
+      ${props.light.aLeft}1px ${props.light.aRight}1px 3px ${colors.lightShadow}
       `};
   }
 
   &:active {
-    box-shadow: inset 1px 1px 3px #a7acc2, inset -1px -1px 3px #f1f8ff;
+    box-shadow: inset 1px 1px 3px ${colors.darkBase}, inset -1px -1px 3px ${colors.lightBase};
 
   }
 `
@@ -86,7 +91,7 @@ const RadioButton = (props) => {
           {...props}
           light={light}
         />
-        <Typography {...props} style={styles.label}>{props.label}</Typography>
+        <Typography  {...props} style={styles.label}>{props.label}</Typography>
       </label>
     </div >
   )

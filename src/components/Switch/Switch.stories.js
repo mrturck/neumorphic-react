@@ -4,6 +4,7 @@ import {
 } from '@storybook/addon-knobs';
 import Switch from '.';
 import Typography from '../Typography';
+import { getColors } from '../../utils';
 
 const styles = {
   title: {
@@ -19,7 +20,7 @@ export default {
     <div style={{
       minHeight: '100vh',
       minWidth: '100vw',
-      background: '#ccd2ed',
+      background: getColors().base,
       padding: 48
     }}
     >

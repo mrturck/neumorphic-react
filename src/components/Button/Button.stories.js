@@ -6,6 +6,7 @@ import Button from '.';
 import heart from './heart.png'
 import like from './like.png'
 import Typography from '../Typography';
+import getColors from '../../utils/getColors';
 
 export default {
   title: 'Button',
@@ -13,7 +14,7 @@ export default {
     <div style={{
       height: '100vh',
       width: '100vw',
-      background: '#ccd2ed',
+      background: getColors().base,
       padding: 50,
     }}
     >
@@ -26,7 +27,7 @@ export const withDefault = () =>  (
   <div>
     <Button style={{ margin: 24, display: 'block' }} >Flat Rounded</Button>
     <Button style={{ margin: 24, display: 'block' }} >
-      <Typography style={{fontSize: 18}}>Inset Rounded</Typography>
+      <Typography inset style={{fontSize: 18}}>Inset Rounded</Typography>
       </Button>
     <Button style={{ margin: 24, display: 'inline' }}>
       <img src={heart} />
@@ -35,7 +36,7 @@ export const withDefault = () =>  (
       <img style={{height: 60, width: 60}} src={like} />
     </Button>
     <Button style={{ margin: 24, display: 'block' }} flat>
-    <Typography style={{fontSize: 24}}>Inset Flat</Typography>
+    <Typography inset style={{fontSize: 24}}>Inset Flat</Typography>
     </Button>
 
   </div>

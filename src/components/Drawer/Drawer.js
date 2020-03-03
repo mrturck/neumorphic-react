@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Paper from '../Paper';
+import getColors from '../../utils/getColors';
+
+const colors = getColors();
 
 const DrawerRoot = styled.div`
   height: 100vh;
@@ -8,8 +11,8 @@ const DrawerRoot = styled.div`
   width: 25%;
   left: ${props => props.anchor == "right" ? false : 0};
   right: ${props => props.anchor == "right" ? 0 : false};
-  background: #ccd2ed;
-  box-shadow:  5px 5px 7px #adb3c9, -5px -5px 7px #ebf2ff;
+  background: ${colors.base};
+  box-shadow:  5px 5px 7px ${colors.darkShadow}, -5px -5px 7px ${colors.lightShadow};
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top *

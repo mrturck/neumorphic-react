@@ -6,6 +6,9 @@ import Select from '.';
 import Paper from '../Paper';
 import MenuItem from '../MenuItem';
 import Typography from '../Typography';
+import getColors from '../../utils/getColors';
+
+
 const styles = {
   divWrapper: {
     marginTop: 38
@@ -18,7 +21,7 @@ export default {
     <div style={{
       minHeight: '100vh',
       minWidth: '100vw',
-      background: '#ccd2ed',
+      background:  getColors().base,
       padding: 48
     }}
     >
