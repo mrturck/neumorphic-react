@@ -62,6 +62,8 @@ const styles = {
     fontSize: 18,
   }
 }
+
+
 export default {
   title: 'Paper',
   decorators: [withKnobs, (story) => (
@@ -81,7 +83,7 @@ export const withDefault = () => {
   const [user, setUser] = useState('mikey');
   const [pass, setPass] = useState('wecbqwfdsakjfhas');
 
-  const handleUser = (e) => {e.preventDefault(); setUser(e.target.value)}
+  const handleUser = (e) => {setUser(e.target.value)}
   const handlePass = (e) => setPass(e.target.value)
 
   return (

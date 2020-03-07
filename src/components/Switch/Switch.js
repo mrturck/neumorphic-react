@@ -56,7 +56,9 @@ const StyledSwitch = styled.div`
   border-radius: 24px;
   background: ${props => props.checked ? `linear-gradient(145deg, ${themeColors.lightShadow}, ${themeColors.darkShadow})` : colors.base};
   background-color: ${colors.base};
-  box-shadow: ${props => !props.checked ? `inset 3px 3px 5px ${colors.darkShadow}, inset -3px -3px 5px ${colors.lightShadow}` : '' };
+  box-shadow: ${props => !props.checked ? `inset 3px 3px 5px ${colors.darkShadow}, inset -3px -3px 5px ${colors.lightShadow}` 
+      : `inset 3px 3px 5px ${themeColors.darkShadow}, inset -3px -3px 5px ${themeColors.lightShadow}`
+  };
   -webkit-transition: .2s;
   -ms-transition: .2s;
   transition: .2s;
@@ -88,9 +90,10 @@ const StyledSwitch = styled.div`
   }
   
   &:hover {
-    box-shadow: inset 1px 1px 3px ${colors.darkShadow}, inset -1px -1px 3px ${colors.lightShadow};
+    box-shadow: ${props => !props.checked ? `inset 1px 1px 3px ${colors.darkShadow}, inset -1px -1px 3px ${colors.lightShadow}` 
+      : `inset 3px 3px 5px ${themeColors.darkShadow}, inset -3px -3px 5px ${themeColors.lightShadow}`
+      };
   }
-
 `
 
 const SwitchContainer = styled.div`

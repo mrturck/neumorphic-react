@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components'
 import { render } from 'react-dom';
-import theme from '../../utils/getTheme';
-import getColors from '../../utils/getColors';
+import { getColors, getGradient, theme} from '../../utils';
 
 const colors = getColors(theme.palette.background.main);
 
+const buttonColors = {
+    default: colors.base,
+    primary: theme.palette.primary.main,
+    secondary: theme.palette.secondary.main
+}
 /**
  * FIX ISSUE WITH WEIRD BACKGROUND COLORS AT LEAST WITH PAPER COMPONENT
  * 
@@ -27,14 +31,15 @@ const colors = getColors(theme.palette.background.main);
 const RoundedButton = styled.button`
 border: none;
 border-radius: 95px;
-padding: 8px 12px;
-text-align: center;
+padding: 12px 24px;
+text-align: center
+color: ${props => props.color ? 'white' : theme.typography.main};
 
-background: ${colors.base}; //linear-gradient(145deg, ${colors.lightBase}, ${colors.darkBase});
+background: ${props => props.color ? getGradient(buttonColors[props.color]) : colors.base};
 box-shadow:  5px 5px 7px ${colors.darkShadow}, -5px -5px 7px ${colors.lightShadow};
 
 &:hover {
-background: ${colors.base}; //linear-gradient(145deg, ${colors.darkBase}, ${colors.lightBase});
+background: ${props => props.color ? getColors(buttonColors[props.color]).lightBase : colors.base};
 box-shadow:  3px 3px 5px ${colors.darkShadow}, -3px -3px 5px ${colors.lightShadow};
  }
 
@@ -49,16 +54,19 @@ border: none;
 border-radius: 95px;
 padding: 12px 24px;
 text-align: center;
+color: ${props => props.color ? 'white' : theme.typography.main};
 
-background: ${props => props.color ? props.color : colors.base};
+background: ${props => props.color ? buttonColors[props.color] : colors.base};
 box-shadow:  5px 5px 7px ${colors.darkShadow}, -5px -5px 7px ${colors.lightShadow};
 
 &:hover {
-box-shadow:  3px 3px 7px  ${colors.darkShadow}, -3px -3px 7px ${colors.lightShadow};
+  background: ${props => props.color ? getColors(buttonColors[props.color]).lightShadow : colors.lightBase};
+  box-shadow:  3px 3px 7px  ${colors.darkShadow}, -3px -3px 7px ${colors.lightShadow};
  }
 
 &:active {
 background: ${colors.base};
+color:  ${theme.typography.main};
 box-shadow: inset 3px 3px 5px  ${colors.darkShadow}, inset -3px -3px 5px ${colors.lightShadow};
 }
 `;

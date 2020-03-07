@@ -30,8 +30,8 @@ export default {
 export const withDefault = () => (
   <div>
     <Typography style={styles.title}>Check one or more:</Typography>
-    <Checkbox label={'First'}/>
-    <Checkbox label={'Second'}/>
-    <Checkbox label={'Third'}/>
+    <Checkbox color='primary' label={'Primary'}/>
+    <Checkbox color='secondary' label={'Secondary'}/>
+    <Checkbox label={'Default'}/>
   </div>
 );

@@ -5,7 +5,7 @@ import Typography from '../Typography';
 import getColors from '../../utils/getColors';
 import theme from '../../utils/getTheme';
 
-const themeColors = getColors(theme.palette.primary.main);
+const themeColors = (palette='primary') => getColors(theme.palette[palette].main);
 const colors = getColors(); // background colors
 /**
 * Tutorial: https://medium.com/@colebemis/building-a-checkbox-component-with-react-and-styled-components-8d3aa1d826dd
@@ -51,7 +51,7 @@ const StyledCheckbox = styled.div`
   width: ${props => props.size ? `${props.size}px` : '16px'};
   height: ${props => props.size ? `${props.size}px` : '16px'};
 
-  background: ${props => props.checked ? `linear-gradient(315deg, ${themeColors.darkShadow}, ${themeColors.lightShadow})`: colors.base};
+  background: ${props => props.checked ? `linear-gradient(315deg, ${themeColors(props.color).darkShadow}, ${themeColors(props.color).lightShadow})`: colors.base};
   box-shadow: ${ props => 
     `${props.light.left}3px ${props.light.right}3px 5px ${colors.darkShadow},
      ${props.light.aLeft}3px ${props.light.aRight}3px 5px ${colors.lightShadow}

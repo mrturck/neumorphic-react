@@ -25,18 +25,23 @@ export default {
 
 export const withDefault = () =>  (
   <div>
-    <Button style={{ margin: 24, display: 'block' }} >Flat Rounded</Button>
     <Button style={{ margin: 24, display: 'block' }} >
-      <Typography inset style={{fontSize: 18}}>Inset Rounded</Typography>
-      </Button>
-    <Button style={{ margin: 24, display: 'inline' }}>
-      <img src={heart} />
+      <Typography variant="h6" inset style={{fontSize: 18}}>Inset Rounded</Typography>
     </Button>
-    <Button style={{ margin: 24,display: 'inline' }}>
-      <img style={{height: 60, width: 60}} src={like} />
+      <Button style={{ margin: 24, display: 'inline' }}>
+        <img src={heart} />
+      </Button>
+      <Button style={{ margin: 24,display: 'inline' }}>
+        <img style={{height: 60, width: 60}} src={like} />
+      </Button>
+    <Button color="primary" style={{ margin: 24, display: 'block' }} flat>
+      Default Primary
+    </Button>
+    <Button color="secondary" style={{ margin: 24, display: 'block' }} >
+      Default Secondary
     </Button>
     <Button style={{ margin: 24, display: 'block' }} flat>
-    <Typography inset style={{fontSize: 24}}>Inset Flat</Typography>
+      Default Flat
     </Button>
 
   </div>

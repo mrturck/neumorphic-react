@@ -4,7 +4,7 @@ import getLight from '../../utils/getLight'
 import Typography from '../Typography';
 import { getColors, theme } from '../../utils';
 
-const themeColors = getColors(theme.palette.primary.main)
+const themeColors = (palette = 'primary') => getColors(theme.palette[palette].main)
 const colors = getColors();
 
 const styles = {
@@ -13,7 +13,9 @@ const styles = {
     width: 'auto'
   },
   label: {
-    display: 'inline'
+    display: 'inline',
+    fontSize: 16,
+
   }
 }
 
@@ -43,11 +45,11 @@ const StyledRadioButton = styled.div`
   display: inline-block;
   border-radius: 180px;
   transition: all 150ms;
-  border: 1px solid linear-gradient(135deg, ${ themeColors.lightShadow }, ${ themeColors.darkShadow });
-  width: ${props => props.size ? `${props.size}px` : '12px'};
-  height: ${props => props.size ? `${props.size}px` : '12px'};
+  border: ${ props => `1px solid linear-gradient(135deg, ${ themeColors(props.color).lightShadow }, ${ themeColors(props.color).darkShadow })`};
+  width: ${props => props.size ? `${props.size}px` : '16px'};
+  height: ${props => props.size ? `${props.size}px` : '16px'};
 
-  background: ${props => props.checked ? `linear-gradient(135deg, ${themeColors.lightShadow} , ${themeColors.darkShadow})`
+  background: ${props => props.checked ? `linear-gradient(135deg, ${themeColors(props.color).lightShadow} , ${themeColors(props.color).darkShadow})`
     : `linear-gradient(135deg, ${colors.darkBbase}, ${colors.lightBase})`
   };
   box-shadow: ${ props =>

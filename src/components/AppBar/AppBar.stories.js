@@ -14,7 +14,7 @@ const styles={
     // position: 'relative'
   },
   appGrid: {
-    padding: 24,
+    padding: '12px 24px',
     display: 'flex',
     width: '100%',
     justifyContent: 'flex-end',
@@ -38,7 +38,8 @@ const styles={
     height: 100
   },
   title: {
-    fontSize: 36
+    fontSize: 32,
+    margin: 0
   }
 }
 export default {

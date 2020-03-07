@@ -37,10 +37,9 @@ export const withDefault = () => {
     <div>
     <Typography style={styles.title}>Check exactly one:</Typography>
     <form style={styles.form}>
-      <RadioButton onClick={handleClick} value={1} label="Option 1" checked={selected == 1} />
-      <RadioButton onClick={handleClick}  value={2} label="Option 2" checked={selected == 2} />
-      <RadioButton onClick={handleClick}  value={3} label="Option 3" checked={selected == 3} />
-      <RadioButton onClick={handleClick}  value={4} label="Option 4" checked={selected == 4} />
+      <RadioButton color="primary" onClick={handleClick} value={1} label="Primary" checked={selected == 1} />
+      <RadioButton color="secondary" onClick={handleClick}  value={2} label="Secondary" checked={selected == 2} />
+      <RadioButton onClick={handleClick}  value={3} label="Default" checked={selected == 3} />
     </form>
     </div>
 )};
